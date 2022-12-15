@@ -1,0 +1,22 @@
+
+To Run:
+npm i 
+npm start
+
+To test:
+npx cypress open
+
+
+useRef serves a couple main purposes:
+1. Access DOM elements
+2. Persist values across successive renders
+useRef is most commonly used when accessing React DOM elements. For example, if you’re trying to access an input element after it’s been mounted to the DOM, 
+
+* So, the project contains the three different use Cases of the useRef hook.
+*Case 1(in App.js) -- The inner Text of the paragraph changes after clicking the button. 
+*Case 2(in App.js) -- The Background color of the paragraph changes after clicking the button. 
+* Case 3(Todo.js) -- The inner Text of the paragraph changes after clicking the button. 
+* Test cases are implemeted in cypress/component/todo2.cy.js file.
+* In case 3, The expectation is that the useEffect hook will only run when we increase the number of points the todo is worth. However, if we run this code and click the button a couple times, we’ll see that regardless of if the points value changes, the useEffect hook will always run! After using useRef hook, we’re keeping track of the previous todo by saving it to the .current property of the useRef hook since it survives after each render. Another useEffect hook is used to update the previousTodoRef.current value after each re-render. Finally, we can now extract the previousTodo value to do a deep compare to ensure that we only log when the todo actually changes.
+* In the Boiler Plate code, we have removed the useref code in all the 3 test cases, so in case 3 we can observe that the value of the Clicks variable is increasing but not of todo(where useRef is used), hence the test cases are failing.
+

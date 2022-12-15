@@ -19,9 +19,9 @@ const Todo = () => {
     const previousTodo = usePrevious(todo)
     //var kuchBhi=0;                                     
     React.useEffect(() => {                                
-        //     if (!_.isEqual(previousTodo, todo)) {       // Here we have commented this condition, so we are not using useRef in this case 
+                                                  // Here we have removed the condition, so we are not using useRef in this case 
                 setClicks(clicks+1);                       // Test case should fail
-      //}                                                  
+                                                     
     }, [todo])
     // const val=()=>{
     //     const arr=[0.6,0.8,0.7,0.6,0.2];
